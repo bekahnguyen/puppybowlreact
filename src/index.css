@@ -1,0 +1,23 @@
+.Container {
+  border: 2px solid orangered;
+  padding: 10px;
+  margin: 10px;
+  display: inline-block;
+}
+
+.Form {
+  padding: 10px;
+}
+
+.searchbar {
+  margin: 20px;
+}
+
+body {
+  text-align: center;
+}
+
+.Container-picture {
+  height: 250px;
+  width: 250px;
+}
