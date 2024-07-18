@@ -7,25 +7,30 @@ import { useParams } from "react-router-dom";
 const APIURL =
   "https://fsa-puppy-bowl.herokuapp.com/api/2401-ftb-mt-web-pt/players/";
 
-function PlayerCard({ player, setPlayer }) {
+function PlayerCard({ player, setPlayers }) {
   const playerId = useParams();
   const navigate = useNavigate();
-  async function handleRemove() {
+
+  async function handleRemove(id) {
     try {
-      let id = player.id;
       console.log(id);
       const response = await fetch(`${APIURL}/${id}`, {
         method: "DELETE",
-        headers: {
-          "Content-type": "application/json",
-        },
       });
-      const result = await response.json();
-      console.log(result);
+      if (response.ok) {
+        setPlayers((currentPlayers) => {
+          return currentPlayers.filter((currentPlayer) => {
+            console.log(currentPlayer);
+            return currentPlayer.id != id;
+          });
+        });
+      }
     } catch (err) {
       console.error(err);
     }
   }
+
+  //make new state, isDelete=true then return null if player.id has state of isDeleted!.//
 
   // TODO
   // Details
@@ -45,7 +50,9 @@ function PlayerCard({ player, setPlayer }) {
           <button onClick={() => navigate(`/players/${player.id}`)}>
             See more Details!
           </button>
-          <button onClick={handleRemove}>Remove from roster</button>
+          <button onClick={() => handleRemove(player.id)}>
+            Remove from roster
+          </button>
         </div>
       </div>
     </>

@@ -70,8 +70,13 @@ export default function Form(setPlayers) {
             placeholder="Image URL"
           ></input>
         </label>
-        <button>Submit!</button>
+        <button type="submit">Submit!</button>
       </form>
+      <table>Possible Teammates:</table>
+      <tr>
+        <td>Names</td>
+      </tr>
+      Harry, Sally, Mo, Pookaboo
     </>
   );
 }

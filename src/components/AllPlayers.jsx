@@ -30,13 +30,13 @@ function AllPlayers() {
     <>
       <div className="searchbar">
         <label>
-          Search for a Pup:
-          <input onChange={onInputChange} />
+          <input placeholder="find a pup!" onChange={onInputChange} />
         </label>
+        <span>
+          <h4 onClick={() => navigate("/players/add-player")}>Add Player</h4>
+        </span>
       </div>
-      <button onClick={() => navigate("/players/add-player")}>
-        Add Player.
-      </button>
+
       <div>
         -
         {filteredPlayers.map((player) => (
