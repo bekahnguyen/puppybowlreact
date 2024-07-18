@@ -21,3 +21,17 @@ body {
   height: 250px;
   width: 250px;
 }
+
+#singlePlayer {
+  display: inline-block;
+  font: larger;
+}
+
+#puppyPic {
+  border-radius: 50%;
+  width: 50vh;
+}
+
+ul {
+  list-style-type: none;
+}

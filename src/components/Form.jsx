@@ -9,6 +9,11 @@ export default function Form(setPlayers) {
   const [breed, setBreed] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
+  const handleClear = () => {
+    setName("");
+    setBreed("");
+    setImageUrl("");
+  };
   async function handleSubmit(e) {
     e.preventDefault();
     try {
@@ -26,11 +31,18 @@ export default function Form(setPlayers) {
       const result = await response.json();
 
       console.log(result);
+      if (result.success) {
+        alert("Successfully created player!");
+      } else {
+        alert("Sorry, something went wrong");
+      }
     } catch (error) {
       console.log(error);
     }
+    handleClear();
+
     //do I call fetch all players or do i pull a componant in?
-    getPlayersById();
+    // getPlayersById();
   }
 
   return (

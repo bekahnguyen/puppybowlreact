@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
 import PlayerCard from "./PlayerCard.jsx";
 import { fetchAllPlayers } from "../API/index.js";
+import { useNavigate } from "react-router-dom";
 
 function AllPlayers() {
   const [players, setPlayers] = useState([]);
   const [filteredPlayers, setFilteredPlayers] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getPlayers = async () => {
       const players = await fetchAllPlayers();
       setPlayers(players);
-      console.log(players);
       setFilteredPlayers(players);
     };
     getPlayers();
@@ -33,6 +34,9 @@ function AllPlayers() {
           <input onChange={onInputChange} />
         </label>
       </div>
+      <button onClick={() => navigate("/players/add-player")}>
+        Add Player.
+      </button>
       <div>
         -
         {filteredPlayers.map((player) => (

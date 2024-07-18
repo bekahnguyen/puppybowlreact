@@ -4,6 +4,7 @@ import SinglePlayer from "./components/SinglePlayer";
 import "./App.css";
 import Form from "./components/Form";
 import { useParams } from "react-router-dom";
+import Nav from "./components/Nav";
 
 function App() {
   // TODO
@@ -21,15 +22,12 @@ function App() {
 
   return (
     <>
-      <nav>
-        <Link to="/">Home</Link>
-      </nav>
-      <h1>Puppy Bowl</h1>
-      <Form />
+      <Nav />
       <Routes>
         <Route path="/" element={<AllPlayers />} />
         <Route path="/players" element={<AllPlayers />} />
         <Route path="/players/:playerId" element={<SinglePlayer />} />
+        <Route path="/players/add-player" element={<Form />} />
       </Routes>
     </>
   );
