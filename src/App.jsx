@@ -3,10 +3,11 @@ import AllPlayers from "./components/AllPlayers";
 import SinglePlayer from "./components/SinglePlayer";
 import "./App.css";
 import Form from "./components/Form";
+import { useParams } from "react-router-dom";
 
 function App() {
   // TODO
-  // Add form to create a new player
+  // Add form to create a new player-- DONE
   // add the player to all players list without refreshing the page
 
   // TODO

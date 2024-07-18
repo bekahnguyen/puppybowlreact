@@ -1,14 +1,15 @@
-import { fetchAllPlayers } from "../API";
+import { fetchAllPlayers, fetchSinglePlayer } from "../API";
 import SinglePlayer from "./SinglePlayer";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
 const APIURL =
   "https://fsa-puppy-bowl.herokuapp.com/api/2401-ftb-mt-web-pt/players/";
 
-function PlayerCard({ player, setPlayers }) {
-  const handleClick = () => {
-    console.log(`${APIURL}/${id}`);
-  };
-
+function PlayerCard({ player, setPlayer }) {
+  const playerId = useParams();
+  const navigate = useNavigate();
   async function handleRemove() {
     try {
       let id = player.id;
@@ -41,7 +42,9 @@ function PlayerCard({ player, setPlayers }) {
           alt={`photo of ${player.name} the puppy`}
         />
         <div>
-          <button onClick={handleClick}>See more Details!</button>;
+          <button onClick={() => navigate(`/players/${player.id}`)}>
+            See more Details!
+          </button>
           <button onClick={handleRemove}>Remove from roster</button>
         </div>
       </div>

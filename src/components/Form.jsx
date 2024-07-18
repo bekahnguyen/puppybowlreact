@@ -30,6 +30,7 @@ export default function Form(setPlayers) {
       console.log(error);
     }
     //do I call fetch all players or do i pull a componant in?
+    getPlayersById();
   }
 
   return (
