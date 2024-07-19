@@ -37,7 +37,7 @@ function AllPlayers() {
         </span>
       </div>
 
-      <div>
+      <div id="homepage">
         -
         {filteredPlayers.map((player) => (
           <PlayerCard key={player.id} player={player} setPlayers={setPlayers} />

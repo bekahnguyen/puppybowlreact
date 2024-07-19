@@ -72,10 +72,6 @@ export default function Form(setPlayers) {
         </label>
         <button type="submit">Submit!</button>
       </form>
-      <table>Possible Teammates:</table>
-      <tr>
-        <td>Names</td>
-      </tr>
       Harry, Sally, Mo, Pookaboo
     </>
   );

@@ -17,14 +17,12 @@ function PlayerCard({ player, setPlayers }) {
       const response = await fetch(`${APIURL}/${id}`, {
         method: "DELETE",
       });
-      if (response.ok) {
-        setPlayers((currentPlayers) => {
-          return currentPlayers.filter((currentPlayer) => {
-            console.log(currentPlayer);
-            return currentPlayer.id != id;
-          });
+      setPlayers((currentPlayers) => {
+        return currentPlayers.filter((player) => {
+          return player.id != id;
         });
-      }
+      });
+      fetchAllPlayers();
     } catch (err) {
       console.error(err);
     }
